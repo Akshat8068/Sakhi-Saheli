@@ -110,6 +110,7 @@ const updateProducts = async (req, res) => {
         if (categories) updateData.categories = categories
         if (originalPrice) updateData.originalPrice = Number(originalPrice)
         if (salePrice) updateData.salePrice = Number(salePrice)
+        if (req.body.isActive !== undefined) updateData.isActive = req.body.isActive
 
         if (colors && colors.length > 0) {
             const processedColors = []
