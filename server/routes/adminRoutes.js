@@ -6,6 +6,7 @@ const router = express.Router()
 // Get All users
 
 router.get("/users", protect.forAdmin, adminController.getAllUsers)
+router.get("/users/:uid", protect.forAdmin, adminController.getUser)
 router.put("/users/:uid", protect.forAdmin, adminController.updateUser)
 
 
