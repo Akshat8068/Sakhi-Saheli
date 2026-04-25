@@ -24,6 +24,15 @@ const updateUser = async (req, res) => {
     res.status(200).json({ success: true, message: "User updated successfully", data: { user: updatedUser } })
 }
 
+const getAllProducts = async (req, res) => {
+    let products = await Product.find()
+    if (!products) {
+        res.status(404)
+        throw new Error("No Products Found")
+    }
+    res.status(200).json({ success: true, message: "Products fetched successfully", data: { products } })
+}
+
 const getAdminProduct = async (req, res) => {
     let product = await Product.findById(req.params.pid)
     if (!product) {
@@ -184,7 +193,7 @@ const allCoupon = async (req, res) => {
 }
 
 const adminController = {
-    getAllUsers, updateUser, getAdminProduct,
+    getAllUsers, updateUser, getAdminProduct, getAllProducts,
     addProducts, updateProducts, updateOrder,
     getAllOrders, getSingleOrder, getAllReview,
     createCoupon, allCoupon

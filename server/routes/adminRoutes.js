@@ -18,6 +18,7 @@ router.post("/product/add",
 );
 router.put("/product/:pid", protect.forAdmin, productUploadFields, adminController.updateProducts)
 router.get("/product/:pid", protect.forAdmin, adminController.getAdminProduct)
+router.get("/products", protect.forAdmin, adminController.getAllProducts)
 // Order Routes
 router.put("/order/:oid", protect.forAdmin, adminController.updateOrder)
 router.get("/orders", protect.forAdmin, adminController.getAllOrders)
